@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<body>
+
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    </head>
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-11">
+                    <div class="card" style="margin-left:50px;">
+                        <div class="card-header card-header-info">
+                            <h4 class="card-title ">La disponibilité des chambres dans le bloc <b> {{name}}</b></h4>
+                            <p class="card-category"> Il existe 8 chambres</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="sidebar-wrapper" style="display: flex;flex-direction: row;justify-content: space-between;">
+                                <form class="form-inline waves-light" mdbWavesEffect>
+                                    <div class="md-form mt-0">
+                                        <input autocomplete="off" style="border-color: darkblue;" class="form-control mr-sm-4" name="myValue" type="text" placeholder="Rechercher Chambre">
+                                    </div>
+                                </form>
+                            </div>
+                            <br>
+                            <br>
+                            <br>
+
+
+                            <div class="row">
+                                <div class="col-sm-3 col-sm-3 col-sm-3" *ngFor="let item of rooms.room">
+                                    <div class="card card-stats " style="display: unset !important;">
+                                        <div class="card-header card-header-warning card-header-icon" *ngIf="item.status==null" style="padding: 8px;
+                                        border-top: 3px solid green;background-color:rgb(213, 252, 213);">
+                                            <ul style="list-style-type:square;">
+                                                <li>
+                                                    <p class="card-category " style="text-align: left;"> <b>Num du chambre </b>: {{ item.id_Bloc}}</p>
+                                                </li>
+                                                <li>
+                                                    <p class="card-category" style="text-align: left;"><b>Type du chambre </b>: {{ item.type}}</p>
+                                                </li>
+                                                <li *ngIf="item.idpatient==0">
+                                                    <p class="card-category" style="text-align: left;"><b>Patient occupant  </b>:nulle</p>
+                                                </li>
+                                                <li *ngIf="item.idpatient!=0">
+                                                    <p class="card-category" style="text-align: left;"><b>Patient occupant</b>: {{ item.idpatient}}</p>
+                                                </li>
+                                                <li *ngIf="item.status==null">
+                                                    <p class="card-category" style="text-align: left;"><b>Status </b>: Disponible</p>
+                                                </li>
+
+                                            </ul>
+                                            <br>
+                                            <div style="text-align: center;">
+                                                <button mat-mini-fab class="btn btn-success" (click)="assignPatient()" style="width : 1m;"> <i class="material-icons" style="font-size: 20px !important;width : auto !important;">add</i></button>
+                                            </div>
+                                        </div>
+
+                                        <div class="card-header card-header-warning card-header-icon" *ngIf="item.status!=null" style="padding: 8px;
+                                        border-top: 3px solid red;background-color:rgb(248, 193, 193);">
+                                            <ul style="list-style-type:square;">
+                                                <li>
+                                                    <p class="card-category " style="text-align: left;"> <b>Num du chambre </b>: {{ item.id_Bloc}}</p>
+                                                </li>
+                                                <li>
+                                                    <p class="card-category" style="text-align: left;"><b>Type du chambre </b>: {{ item.type}}</p>
+                                                </li>
+                                                <li *ngIf="item.idpatient==0">
+                                                    <p class="card-category" style="text-align: left;"><b>Id du patient occupant  </b>: Pas de patient</p>
+                                                </li>
+                                                <li *ngIf="item.idpatient!=0">
+                                                    <p class="card-category" style="text-align: left;"><b>Id patient occupant</b>: {{ item.idpatient}}</p>
+                                                </li>
+                                                <li *ngIf="item.status==null">
+                                                    <p class="card-category" style="text-align: left;"><b>Status </b>: Disponible</p>
+                                                </li>
+                                                <li *ngIf="item.status!=null">
+                                                    <p class="card-category" style="text-align: left;"><b>Status </b>: Occupée</p>
+                                                </li>
+                                                <br>
+                                            </ul>
+                                            <div style="text-align: center;">
+                                                <button mat-mini-fab (click)="Empty(item.id_Bloc)" class="btn btn-danger " style="width : 1m; margin: 5px;"><i class="material-icons" style="font-size: 20px !important;width : auto !important; ">delete</i></button>
+                                                <button mat-mini-fab (click)="viewPatient(item)" class="btn btn-warning " style="width : 1m; margin: 5px; "> <i class="material-icons" style="font-size: 20px !important;width : auto !important;">visibility</i></button>
+                                            </div>
+
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="stats">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>

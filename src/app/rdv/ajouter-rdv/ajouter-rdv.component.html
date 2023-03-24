@@ -1,0 +1,77 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header card-header-info">
+            <h4 class="card-title">Ajouter Rendez-vous</h4>
+            <p class="card-category">Complèter les détails de rendez-vous</p>
+        </div>
+        <div class="card-body">
+            <form #userPost="ngForm" role="form">
+                <div class="row">
+                    <div class="col-md-4">
+                        <mat-form-field>
+                            <mat-select placeholder="Médecin" id="idMedecin" name="idMedecin" ngModel required>
+                                <ng-container *ngFor="let medecin of listeMedecin">
+                                    <mat-option value="{{medecin.id}}">Id : {{medecin.id}}&nbsp; Nom : {{medecin.nom}}&nbsp; Prenom : {{medecin.prenom}}</mat-option>
+                                </ng-container>
+                            </mat-select>
+
+                        </mat-form-field>
+                    </div>
+                    <!--<div class="col-md-5">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Médecin" id="idMedecin" name="idMedecin" value={{rdv?.idMedecin}} ngModel type="number" required/>
+                        </mat-form-field>
+                    </div>-->
+                    <div class="col-md-4">
+                        <mat-form-field appearance="fill">
+        
+                            <mat-select placeholder="Radiologue" id="idMedecin" name="idMedecin" ngModel >
+                                <ng-container *ngFor="let medecin of listeRadiologue">
+                                    <mat-option value="{{medecin.id}}">Id : {{medecin.id}}&nbsp; Nom : {{medecin.nom}}&nbsp; Prenom : {{medecin.prenom}}</mat-option>
+                                </ng-container>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field>
+                            <mat-select placeholder="Patient" id="patient" name="patient" ngModel >
+                                <ng-container *ngFor="let patient of listePatient">
+                                    <mat-option value="{{patient.id_patient}}">Id :{{patient.id_patient}}&nbsp; Nom : {{patient.nom}}&nbsp; Prenom : {{patient.prenom}}</mat-option>
+                                </ng-container>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <!--<div class="col-md-5">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Patient" id="patient" name="patient" value={{rdv?.patient}} ngModel type="number" required/>
+                        </mat-form-field>
+                    </div>-->
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Date De Rendez-vous" type="date" required id="date" name="date" ngModel>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Heure De Rendez-vous" type="time" required id="heure" name="heure" value={{rdv?.heure}} ngModel>
+                        </mat-form-field>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Date De Création" type="date" required id="dateCreation" name="dateCreation" value={{rdv?.dateCreation}} ngModel>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <br> <br>
+                <button mat-raised-button class="btn btn-danger pull-right " (click)="onNoClick() ">Annuler</button>
+                <button mat-raised-button type="submit " class="btn btn-info pull-right " (click)="insertRdv(userPost.value)">Ajouter</button>
+                <div class="clearfix "></div>
+            </form>
+        </div>
+    </div>
+</div>

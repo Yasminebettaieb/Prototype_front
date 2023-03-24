@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<body>
+
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    </head>
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header bg-dark">
+                            <h4 class="card-title" style="color: white;">Modifier employé</h4>
+                            <p class="card-category" style="color: white;">Complèter le profil</p>
+                        </div>
+                        <div class="card-body">
+                            <form #userPost="ngForm" role="form">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="Nom" type="text" id="nom" name="nom" value={{Employee?.nom}} ngModel>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="Prenom" type="text" id="prenom" name="prenom" value={{Employee?.prenom}} ngModel>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="Email address" type="email" id="email" name="email" value={{Employee?.email}} ngModel>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput id="adresse" name="adresse" placeholder="Adresse'" value={{Employee?.adresse}} ngModel>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="Gender" type="text" id="gender" name="gender" value={{Employee?.gender}} ngModel>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="cin" type="text" id="cin" name="cin" value={{Employee?.cin}} ngModel>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="Date" type="date" id="dateNaissance" name="dateNaissance" [(ngModel)]="Employee.dateNaissance" pattern="\d{4}-\d{2}-\d{2}">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <mat-form-field class="example-full-width">
+                                            <input matInput placeholder="Telephone" type="text" id="phoneNumber" name="phoneNumber" value={{Employee?.phoneNumber}} ngModel>
+                                        </mat-form-field>
+                                    </div>
+                                   
+                                </div>
+                                <button mat-raised-button class="btn btn-info pull-right" (click)="Onupdate(Employee?.id,userPost.value)">Modifier employé</button>
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-dark ">
+                            <p class="card-category" style="color: white;">Changer le mot de passe</p>
+                        </div>
+                        <div class="card-body">
+                            <form #userPostt="ngForm" role="form">
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>Entrer Vote ancien  mot de passe :  </label> &nbsp;&nbsp;&nbsp;
+                                        <mat-form-field class="example-full-width">
+
+                                            <input class="form-control" matInput type="password" id="password" name="password" value={{mdp?.password}} ngModel>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>Entrer Vote nouveau  mot de passe encore :  </label> &nbsp;&nbsp;&nbsp;
+
+                                        <mat-form-field class="example-full-width">
+                                            <input class="form-control" matInput type="password" id="newpassword" name="newpassword" value={{mdp?.newpassword}} ngModel>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>Entrer Vote nouveau  mot de passe :  </label> &nbsp;&nbsp;&nbsp;
+
+                                        <mat-form-field class="example-full-width">
+
+                                            <input class="form-control" matInput type="password" id="repass" name="repass">
+                                        </mat-form-field>
+                                    </div>
+
+                                </div>
+
+                                <button mat-raised-button class="btn btn-info pull-right" (click)="OnChange(Employee?.id,userPostt.value)">changer </button>
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</body>

@@ -1,0 +1,105 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4 col-md-8 col-sm-8">
+                <div class="card card-stats">
+                    <div class="card-header card-header-warning card-header-icon">
+                        <div class="card-icon">
+                            <i class="fa fa-users"></i>
+                        </div>
+                        <p class="card-category">Gestion</p>
+                        <h3 class="card-title">Employés </h3>
+                        <p class="card-category"><b>Environ {{item}} Employés</b></p>
+
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-8 col-sm-8">
+                <div class="card card-stats">
+                    <div class="card-header card-header-success card-header-icon">
+                        <div class="card-icon">
+                            <i class="fa fa-bed "></i>
+                        </div>
+                        <p class="card-category">Gestion</p>
+                        <h3 class="card-title">Patients</h3>
+                        <p class="card-category"><b>Environ {{item1}} Patients</b></p>
+
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-8 col-sm-8">
+                <div class="card card-stats">
+                    <div class="card-header card-header-danger card-header-icon">
+                        <div class="card-icon">
+                            <i class="fa fa-hospital-o  "></i>
+                        </div>
+                        <p class="card-category">Gestion</p>
+                        <h3 class="card-title">Blocs</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card card-chart">
+                  <div class="card-header card-header-warning">
+                    <h4 class="card-title">Mes Rendez-vous </h4>
+                    <p class="card-category">Prochains rendez-vous</p>
+                  </div>
+                  <div class="card-body">
+                    <div class="ct-chart" id="upcomingAppointmentsChart"></div>
+                    <ul>
+                      <li *ngFor="let appointment of appointments">
+                        <p>Nom du patient : {{ appointment.patient.nom }} {{ appointment.patient.prenom }}</p>
+                        <p>Date: {{ appointment.date }}</p>
+                        <p>Heure: {{ appointment.heure }}</p>
+                        <hr>
+                      </li>
+                    </ul>
+                  </div>
+                  
+                </div>
+              </div>
+         
+       
+            <div class="col-md-6">
+                <div class="card card-chart">
+                  <div class="card-header card-header-success">
+                    <h4  class="card-title">Temps </h4>
+                    <p class="card-category">Temps courant et disponibilité</p>
+                  </div>
+                  <div class="card-body">
+                    <div  class="d-flex justify-content-between">
+                      <div>
+                        <h5 class="card-subtitle mb-2 text-muted"> <b>Heure actuelle  : </b></h5>
+                        <p style="text-align: center;"> <b>  {{ currentTime }} </b></p>
+                      </div>
+                      <div>
+                        <h5  style= "text-align: center" class="card-subtitle mb-2 text-muted"> <b>Temps depuis l'ouverture </b></h5>
+                        <div   class="clock"> <b>{{ timeSinceOpened | date: 'HH:mm:ss' }}  </b> </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">access_time</i>  Le temps a passé en travaillant
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

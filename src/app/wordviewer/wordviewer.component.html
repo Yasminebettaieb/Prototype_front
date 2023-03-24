@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<head>
+    <link href="https://cdn.syncfusion.com/ej2/20.1.52/bootstrap5.css" rel="stylesheet"/>
+    <link href="https://cdn.syncfusion.com/ej2/20.1.52/material.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="main-content" style="padding: 0 !important;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-10">
+                    <input type="button" ejs-button (click)="saveAsDocx()"  value="Download Docx"  class="btn btn-success" />
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-12" >
+                    
+        <ejs-documenteditor #document_editor  id="container" height="700px" style="display:block" [isReadOnly]=false [enableEditor]=true [enableWordExport]=true [enableSfdtExport]=true> </ejs-documenteditor>
+    </div>
+
+</div>
+        </div>
+    </div>
+</body>

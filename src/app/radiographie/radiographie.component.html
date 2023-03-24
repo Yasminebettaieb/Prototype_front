@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<body>
+
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    </head>
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-info">
+                            <h4 class="card-title ">Liste des radiographies</h4>
+                            <p class="card-category"> Il existe {{irm.length}} radiographies</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="sidebar-wrapper" style="display: flex;flex-direction: row;justify-content: space-between;">
+                                <form class="form-inline waves-light" mdbWavesEffect>
+                                    <div class="md-form mt-0">
+                                        <input autocomplete="off" style="border-color: darkblue;" class="form-control mr-sm-4" name="myValue" type="text" placeholder="Rechercher imagerie">
+                                    </div>
+                                </form>
+                                <button mat-raised-button type="submit" class="btn btn-warning " (click)="AjoutDcom()"><i class="material-icons">person_add</i>&nbsp;&nbsp;Ajouter Radiographie</button>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3 col-sm-3 col-sm-3" *ngFor="let item of irm">
+                                    <div class="card card-stats">
+                                        <div class="card-header card-header-warning card-header-icon  ">
+                                            <div class="card-icon" style="text-align: right !important; background : rgb(77, 75, 75) !important; box-shadow :none !important ;     width: 30%;
+                                            height: 30% !important; padding: 0 !important;">
+                                                <img style="box-shadow: -10px 8px 5px 0px rgba(0,0,0,0.75);
+                                            -webkit-box-shadow: -10px 8px 5px 0px rgba(0,0,0,0.75);
+                                            -moz-box-shadow: -10px 8px 5px 0px rgba(0,0,0,0.75);" class="card-img-top" src="./../../assets/IRM.jpg" alt="Card image cap">
+                                            </div>
+                                            <p class="card-category " style="text-align: left;"> <b>ID_Imagerie </b>: {{ item.id_imagerie}}</p>
+                                            <p class="card-category" style="text-align: left;"><b>Id_Patient </b>: {{ item.patient.id_patient}}</p>
+                                            <p class="card-category" style="text-align: left;"><b>Nom_Patient </b>: {{ item.patient.nom}}</p>
+                                            <br>
+                                            <p class="card-category" style="text-align: left;"><b>Prenom_Patient </b>: {{ item.patient.prenom}}</p>
+                                            <p class="card-category" style="text-align: left; overflow: hidden;
+                                            white-space: nowrap; text-overflow: ellipsis; max-width: 150px; "><b>type </b>: {{ item.type}}</p>
+                                            <p class="card-category" style="text-align: left;"><b>Date_Création</b> : {{item.dateCreation}}</p>
+                                            <p class="card-category" style="text-align: left;"><b>Rapport </b>: <a href="{{item.rapportUrl}}" target="_blank"> {{item.rapportId}}</a></p>
+                                            <p class="card-category" style="text-align: left; overflow: hidden;
+                                            white-space: nowrap; text-overflow: ellipsis; max-width: 150px;"><b>Image </b>: <a [routerLink]="['/dicomViewer', item.id_imagerie]" target="_blank"> {{item.imageId}}</a></p>
+                                            <p style ="color: gray;text-align: left; " class="card-category"> cliquer sur <b> l'image </b>  pour la voir.</p>
+                                            <button mat-mini-fab type="submit" (click)="deleteImagerie(item?.id_imagerie)" class="btn btn-danger " style="width : 1m; "><i class="material-icons" style="font-size: 20px !important;width : auto !important;">delete</i></button>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="stats">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

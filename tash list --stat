@@ -1,0 +1,14 @@
+stash@{0}: WIP on main: 2e89436 update
+
+ src/app/_services/user-service.service.ts  | 4 [32m++[m[31m--[m
+ src/app/update-emp/update-emp.component.ts | 4 [32m+++[m[31m-[m
+ 2 files changed, 5 insertions(+), 3 deletions(-)
+stash@{1}: WIP on main: 2e89436 update
+
+ package-lock.json                                  | 69 [32m+++++++++++++++[m[31m-------[m
+ package.json                                       |  1 [32m+[m
+ src/app/app.module.ts                              |  2 [32m+[m[31m-[m
+ .../layouts/admin-layout/admin-layout.module.ts    |  3 [32m+[m[31m-[m
+ src/app/table-list/table-list.component.html       | 40 [32m++++++++[m[31m-----[m
+ src/app/table-list/table-list.component.ts         | 30 [32m++++++++[m[31m--[m
+ 6 files changed, 100 insertions(+), 45 deletions(-)

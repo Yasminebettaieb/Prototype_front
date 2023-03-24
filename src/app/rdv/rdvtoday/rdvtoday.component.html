@@ -1,0 +1,80 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-info">
+                        <h4 class="card-title ">Liste des rendez-vous pour le jour : {{date}}</h4>
+                        <p class="card-category"> Il existe {{rdv.length}} rendez-vous </p>
+                    </div>
+                    <div class="card-body">
+                        <!--<div class="sidebar-wrapper" style="display: flex;flex-direction: row;justify-content: space-between;">
+                            <form class="form-inline waves-light" mdbWavesEffect>
+                                <div class="md-form mt-0">
+                                </div>
+                            </form>
+                            <button mat-raised-button type="submit" class="btn btn-warning" (click)="ajouterRdv(date)"><i class="material-icons">insert_invitation</i>&nbsp;&nbsp;Ajouter Rendez-vous </button> </div>
+                        -->
+                        <div class="table-responsive">
+                            <table class="table" id="example-table">
+                                <thead class=" text-info" id="table-headline">
+                                    <th>
+                                        ID_Rdv
+                                    </th>
+                                    <th>
+                                        ID_Patient
+                                    </th>
+                                    <th>
+                                        NOM_Patient
+                                    </th>
+                                    <th>
+                                        PRENOM_Patient
+                                    </th>
+                                    <th>
+                                        ID_MEDECIN
+                                    </th>
+                                    <th>
+                                        NOM_MEDECIN
+                                    </th>
+                                    <th>
+                                        PRENOM_MEDECIN
+                                    </th>
+                                    <th>
+                                        HEURE
+                                    </th>
+                                    <th *ngIf="userService.roleMatch(['ROLE_RECEPTIONISTE'])">
+                                        Action
+                                    </th>
+                                </thead>
+
+                                <tbody>
+                                    <tr *ngFor="let item of rdv">
+                                        <td> {{ item.id_Rdv}} </td>
+                                        <td> {{ item.patient.id_patient}} </td>
+                                        <td> {{ item.patient.nom}} </td>
+                                        <td> {{ item.patient.prenom}} </td>
+                                        <td> {{ item.idMedecin}} </td>
+                                        <td> {{ item.medecin.nom}} </td>
+                                        <td> {{ item.medecin.prenom}} </td>
+                                        <td> {{ item.heure}} </td>
+                                        <td *ngIf="userService.roleMatch(['ROLE_RECEPTIONISTE'])">
+                                            <button mat-mini-fab type="submit" style="width :1m;" class="btn btn-warning " style="width : 1m; " (click)="modifierRdv(item?.id_Rdv)"><i class="material-icons">edit</i></button>&nbsp;
+                                            <button mat-mini-fab type="submit" class="btn btn-danger " style="width : 1m; " (click)="deleteRdv(item?.id_Rdv)"><i class="material-icons">delete</i></button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="sidebar-wrapper" style="display: flex;flex-direction: row;justify-content: space-between;">
+                            <form class="form-inline waves-light" mdbWavesEffect>
+                                <div class="md-form mt-0">
+                                </div>
+                            </form>
+                            <button mat-raised-button class="btn btn-info" (click)="onNoClick()"><i class="material-icons">arrow_back</i>&nbsp;&nbsp;Retour au calendrier</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

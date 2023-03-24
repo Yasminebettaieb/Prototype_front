@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<body>
+
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    </head>
+    <style>
+        .mat-select-trigger {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+    </style>
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                   <div class="col-md-10">
+    <div class="card">
+        <div class="card-header    bg-dark mb-3">
+            <h4 class="card-title" style="color:white;">Ajouter Consultation</h4>
+        </div>
+        <div class="card-body">
+            <form #userPost="ngForm" role="form">
+        
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field appearance="fill">
+                            <mat-select placeholder="Patient" id="id_patient" name="id_patient" class="mat-select-trigger" ngModel >
+                                <ng-container *ngFor="let index of listePatient">
+                                    <mat-option value="{{index.id_patient}}">{{index.nom}} {{index.prenom}} /  id =  {{index.id_patient}}</mat-option>
+                                </ng-container>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                   
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Date de consultation" class="form-control" type="date"  id="date" name="date" value="{{consultation?.date}}" ngModel>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Date de creation" class="form-control" type="date"  id="dateCreation" name="dateCreation" value="{{consultation?.dateCreation}}" ngModel>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Heure de consultation"  class="form-control" type="time"  id="heure" name="heure" value="{{consultation?.heure}}" ngModel>
+                        </mat-form-field>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width">
+                            <textarea matInput placeholder="Diagnostique"  class="form-control" rows="3" type="text"  id="diagnostique" name="diagnostique" value="{{consultation?.diagnostique}}" ngModel></textarea>
+                        </mat-form-field>
+                    </div>
+
+                </div>
+          
+                <br> <br>
+                <button mat-raised-button type="submit " (click)="insertConsultation(userPost.value)" class="btn btn-info pull-right">Ajouter</button>
+                <div class="clearfix "></div>
+            </form>
+        </div>
+    </div>
+
+
+</div>
+            </div></div></div></body>

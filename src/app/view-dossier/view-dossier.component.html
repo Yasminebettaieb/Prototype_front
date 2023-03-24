@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<body>
+
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    </head>
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-dark">
+                            <h4 class="card-title " style="color: white;">Infomation du patient</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-12 col-sm-12 col-sm-12" >
+                                    <div class="card card-stats">
+                                        <div class="card-header card-header-warning card-header-icon">
+                                            <div class="card-icon" style="text-align: right !important; background : #00bcd4 !important; box-shadow :none !important ;     width: 40%;
+                                                    height: 40% !important;">
+                                                <img src="../../../assets/patient.png" style="height: 70px;width: 70px;">
+                                            </div>
+                                            <p class="card-category" style="text-align: left;"><b>Prenom </b>: {{ patients?.prenom}}</p>
+                                            <p class="card-category" style="text-align: left;"><b>Nom </b>: {{ patients?.nom}}</p>
+                                            <p class="card-category" style="text-align: left;"><b>Email </b>: {{ patients?.email}}</p>
+                                            <p class="card-category" style="text-align: left;"><b>Cin </b>: {{ patients?.cin}}</p>
+                                            <p class="card-category" style="text-align: left;"><b>Tel </b>: {{ patients?.telephone}}</p>
+                                            <p class="card-category" style="text-align: left;"><b>Date de Naissance</b> : {{patients?.dateNaissance}}</p>
+                                            <p class="card-category" style="text-align: left;"><b>Adresse </b>: {{patients?.adresse}}</p>
+                                            <p class="card-category" style="text-align: left;"><b>Sexe </b>: {{patients?.gender}}</p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="stats">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-dark">
+                            <h4 class="card-title " style="color: white;">List des consultations</h4>
+                        </div>
+                        <div class="card-body">
+                          
+                            <div class="row">
+                                <div class="col-sm-12 col-sm-12 col-sm-12" *ngFor="let item of consultation">
+                                    <div class="card card-stats">
+                                        <div class="card-header card-header-warning card-header-icon  ">
+                                            <p class="card-category " style="text-align: left;"> <b>ID </b>: {{ item.id_Consultation}}</p>
+                                            <p class="card-category" style="text-align: left;"><b>DATE </b>: {{ item.date}}</p>
+                                            <br>
+                                            <p class="card-category" style="text-align: left; ">DIAGNOSTIQUE :</p>
+                                            <button mat-raised-button style="width : 1m; " (click)="afficherDiagnostique(item.diagnostique)" class="btn  btn-info mb-3 pull-left "> Voir Diagnostique &nbsp;<i class="material-icons">visibility</i></button> <br>
+                                              <button *ngIf="item.ordonnance==null" mat-raised-button type="submit " (click)="test(item.id_Consultation)" class="btn  bg-dark mb-3 pull-left ">Ajouter une Ordonnance &nbsp;<i class="material-icons">list_alt</i></button>
+                                                    <button *ngIf="item.ordonnance!=null" (click)="viewOrdonnace(item.id_Consultation , item.id_patient)" mat-raised-button type="submit " class="btn bg-light text-dark border border-dark pull-left ">A déja une ordonnance &nbsp;<i class="material-icons">visibility</i></button>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="stats">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header  bg-dark">
+                            <h4 class="card-title " style="color:white">Chambre</h4>
+                        </div>
+                        <div class="card-body">
+                          
+                            <div class="col-sm-12 col-sm-12 col-sm-12" *ngFor="let item of rooms">
+
+                                <div class="card card-stats "  style="display: unset !important;" >
+                                    <div class="card-header card-header-warning card-header-icon"    style="padding: 8px;"  >
+                                                                   
+                                        <p class="card-category " style="text-align: left;"> <b>Id chambre </b>: {{ item.id_Bloc}}</p>
+                                        <p class="card-category"  style="text-align: left;"><b>Id Patient </b>: {{ item.idpatient}}</p>
+                                        <p class="card-category"  style="text-align: left;"><b>Chambre </b>: {{ item.type}}</p>
+                                        <p class="card-category"  style="text-align: left;"><b>date d'entree </b>: {{ item.dateEntree}}</p>
+                                        <p class="card-category"  style="text-align: left;"><b>date de sortie </b>: {{ item.dateSortie}}</p>
+
+
+                                       <hr>
+                                        <br>
+                                                                              </div>
+                                    </div></div>
+                        </div>
+                            </div>
+                        </div>
+                    </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header bg-dark">
+                            <h4 class="card-title" style="color: white;">Liste des radiographies</h4>
+                        </div>
+                        <div class="card-body">
+                          
+                            <div class="row" >
+                                <div class="col-sm-12 col-sm-12 col-sm-12" *ngFor="let item of irm">
+                                    <div class="card card-stats">
+                                        <div class="card-header card-header-warning card-header-icon  ">
+                                            <div class="card-icon" style="text-align: right !important; background : rgb(77, 75, 75) !important; box-shadow :none !important ;     width: 30%;
+                                            height: 30% !important; padding: 0 !important;">
+                                                <img style="box-shadow: -10px 8px 5px 0px rgba(0,0,0,0.75);
+                                            -webkit-box-shadow: -10px 8px 5px 0px rgba(0,0,0,0.75);
+                                            -moz-box-shadow: -10px 8px 5px 0px rgba(0,0,0,0.75);" class="card-img-top" src="./../../assets/IRM.jpg" alt="Card image cap">
+                                            </div>
+                                            <p class="card-category " style="text-align: left;"><b>ID_Imagerie </b>: {{ item.id_imagerie}}</p>
+                                            <p class="card-category" style="text-align: left;"><b>Nom_Patient </b>: {{ item.patient.nom}}</p>
+                                            <br>
+                                            <p class="card-category" style="text-align: left;"><b>Prenom_Patient </b>: {{ item.patient.prenom}}</p>
+                                            <p class="card-category" style="text-align: left; overflow: hidden;
+                                            white-space: nowrap; text-overflow: ellipsis; max-width: 150px; "><b>type </b>: {{ item.type}}</p>
+                                            <p class="card-category" style="text-align: left;"><b>Date_Création</b> : {{item.dateCreation}}</p>
+                                            <p class="card-category" style="text-align: left;"><b>Rapport </b>: <a href="{{item.rapportUrl}}" target="_blank"> {{item.rapportId}}</a></p>
+                                            <p class="card-category" style="text-align: left; overflow: hidden;
+                                            white-space: nowrap; text-overflow: ellipsis; max-width: 150px;"><b>Image </b>: <a [routerLink]="['/dicomViewer', item.id_imagerie]" target="_blank"> {{item.imageId}}</a></p>
+                                            <button mat-mini-fab type="submit" (click)="deleteImagerie(item?.id_imagerie)" class="btn btn-danger " style="width : 1m; "><i class="material-icons" style="font-size: 20px !important;width : auto !important;">delete</i></button>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="stats">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header  bg-dark">
+                            <h4 class="card-title " style="color:white"> Historique des rendez vous</h4>
+                        </div>
+                        <div class="card-body">
+                          
+                            <div class="col-sm-12 col-sm-12 col-sm-12" *ngFor="let test of rdv">
+                                <div class="card card-stats "  style="display: unset !important;" >
+                                    <div class="card-header card-header-warning card-header-icon"  style="padding: 8px;"  >
+                                                                   
+                                        <p class="card-category " style="text-align: left;"> <b>Id Rendez-vous </b>: {{ test.id_Rdv}}</p>
+                                        <p class="card-category"  style="text-align: left;"><b>Id Médecin </b>: {{ test.idMedecin}}</p>
+                                        <p class="card-category"  style="text-align: left;"><b>Date de Rendez-vous </b>: {{ test.date}}</p>
+                                        <p class="card-category"  style="text-align: left;"><b>Date de Création Rendez-vous </b>: {{ test.dateCreation}}</p>
+                                        <p class="card-category"  style="text-align: left;"><b>Heure </b>: {{ test.heure}}</p>
+                                        <hr>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                </div>
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

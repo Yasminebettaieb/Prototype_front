@@ -1,0 +1,112 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header card-header-info">
+            <h4 class="card-title">Ajouter utilisateur</h4>
+            <p class="card-category">Complèter le profil</p>
+        </div>
+        <div class="card-body">
+            <form #userPost="ngForm" role="form">
+                <div class="row">
+                    <div class="col-md-4">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Nom" id="nom" name="nom" value={{employe?.nom}} ngModel type="text" required/>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Prénom" type="text" required id="prenom" name="prenom" value={{employe?.prenom}} ngModel/>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field class="example-full-width">
+                            <input matInput minlength="6" placeholder="CIN" type="text" required id="cin" name="cin" value={{employe?.cin}} ngModel>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Adresse Email" ngModel [email]="true" type="email" id="email" name="email" value={{employe?.email}} ngModel required>
+                        </mat-form-field>
+                    </div> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="col-md-5">
+                        <mat-checkbox style="margin-top:20px;" id="emailConfirmed" name="emailConfirmed" value={{employe?.emailConfirmed}} ngModel>Adreese Email vérifiée</mat-checkbox>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width">
+                            <input matInput minlength="6" placeholder="Mot De Passe" type="password" id="password" name="password" value={{employe?.password}} ngModel required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width">
+                            <input matInput minlength="6" placeholder="Confirme Mot De Passe" type="password" required>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Numéro de téléphone" type="text" id="phoneNumber" name="phoneNumber" value={{employe?.phoneNumber}} ngModel>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Date De Naissance" type="date" required id="dateNaissance" name="dateNaissance" value={{employe?.dateNaissance}} ngModel>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Adresse" type="text" id="adresse" name="adresse" value={{employe?.adresse}} ngModel>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Date D'emploi" type="date" id="dateEmploi" name="dateEmploi" value={{employe?.dateEmploi}} ngModel required>
+                        </mat-form-field>
+                    </div>
+                    <!--Role + Spécialité -->
+                    <div class="col-md-4">
+                        <mat-form-field>
+                            <mat-select placeholder="Role" required id="role" name="role" value={{employe?.role}} (ngModelChange)="onChange($event)" ngModel>
+                                <ng-container *ngFor="let role of roles">
+                                    <mat-option value="{{role.id}}">{{role.value}}</mat-option>
+                                </ng-container>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field>
+                            <mat-select [disabled]="isEnable === true" placeholder="Spécialité" id="spécialité" name="spécialité" value={{employe?.specialite}} ngModel>
+                                <ng-container *ngFor="let specialite of specialites">
+                                    <mat-option value="{{specialite.id}}">{{specialite.value}}</mat-option>
+                                </ng-container>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class=" col-md-3 ">
+                        <mat-form-field class="example-full-width ">
+                            <input matInput placeholder="Matricule " id="matricule" name="matricule" type="text " value={{employe?.matricule}} ngModel>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-5 " style="margin-top:20px; ">
+                        <label>Sexe : </label> &nbsp;&nbsp;&nbsp;
+                        <mat-radio-group class="example-full-width " id="gender" name="gender" value={{employe?.gender}} ngModel>
+                            <mat-radio-button value="Femme">Femme</mat-radio-button>&nbsp;&nbsp;&nbsp;
+                            <mat-radio-button value="Homme">Homme</mat-radio-button>
+                        </mat-radio-group>
+                    </div>
+                </div> <br>
+                <button mat-raised-button class="btn btn-danger pull-right " (click)="onNoClick() ">Annuler</button>
+                <button mat-raised-button type="submit " class="btn btn-info pull-right " (click)="insertEmployee(userPost.value)">Ajouter</button>
+                <div class="clearfix "></div>
+            </form>
+        </div>
+    </div>
+</div>

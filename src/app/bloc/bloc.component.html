@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<body>
+
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    </head>
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                       <br>
+                       <br>
+                       <br>
+                    <div class="wrapper">
+                      <a [routerLink]="['/blocName',A]" ><input type="radio" name="select" id="option-1" checked></a>
+                       <a [routerLink]="['/blocName',B]"><input type="radio" name="select" id="option-2"></a>
+                       <a [routerLink]="['/blocName',C]"><input type="radio" name="select" id="option-3"></a>
+
+                          <label for="option-1" class="option option-1">
+                            <div class="dot"></div>
+                             <span>BLOC A</span>
+                             </label>
+                          <label for="option-2" class="option option-2">
+                            <div class="dot"></div>
+                             <span>BLOC B</span>
+                          </label>
+                          <label for="option-3" class="option option-3">
+                            <div class="dot"></div>
+                             <span>BLOC C</span>
+                          </label>
+                       </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>

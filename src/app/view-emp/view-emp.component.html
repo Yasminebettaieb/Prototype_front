@@ -1,0 +1,23 @@
+<div class="col-md-12 all">
+    <div class="card card-profile">
+        <div class="card-avatar">
+            <a href="javascript:void(0)">
+                <img class="img" src="/../../assets/emploi.png" />
+            </a>
+        </div>
+        <div class="card-body">
+            <h6 class="card-category text-gray">{{Emploi.id }}</h6>
+            <div class="card-info" style="text-align: justify;">
+                <ul>
+                    <li><span class="title-info">heureSupplementaire :</span>&nbsp;{{Emploi.heureSupplementaire}}</li>
+                    <li><span class="title-info">nombre Heures :</span>&nbsp;{{Emploi.nombreHeures}} </li>
+                    <li><span class="title-info">heureDebut :</span>&nbsp;{{Emploi.heureDebut}}</li>
+                    <li><span class="title-info">heureFin :</span>&nbsp;{{Emploi.heureFin}}</li>
+                    <li><span class="title-info">dateDebut :</span>&nbsp;{{Emploi.dateDebut}}</li>
+                    <li><span class="title-info">dateFin:</span>&nbsp;{{Emploi.dateFin}}</li>
+                </ul>
+            </div>
+            <button mat-raised-button type="submit" class="btn btn-warning btn-round" (click)="onNoClick()">Fermer</button>
+        </div>
+    </div>
+</div>

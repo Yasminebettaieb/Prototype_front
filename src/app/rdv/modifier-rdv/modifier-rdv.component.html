@@ -1,0 +1,48 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header card-header-info">
+            <h4 class="card-title">Modifier Rendez-vous</h4>
+            <p class="card-category">Complèter les détails de rendez-vous</p>
+        </div>
+        <div class="card-body">
+            <form #userPost="ngForm" role="form">
+                <div class="row">
+                    <div class="col-md-5">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Médecin" id="idMedecin" name="idMedecin" value={{rdv?.idMedecin}} ngModel type="number" />
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-5">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Patient" id="patient" name="patient" value={{rdv?.patient.id_patient}} ngModel type="number" />
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Date De Rendez-vous" type="date" id="date" value={{rdv?.date}} name="date" ngModel>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Heure De Rendez-vous" type="time" id="heure" name="heure" value={{rdv?.heure}} ngModel>
+                        </mat-form-field>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Date De Création" type="date" id="dateCreation" name="dateCreation" value={{rdv?.dateCreation}} ngModel>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <br> <br>
+                <button mat-raised-button class="btn btn-danger pull-right " (click)="onNoClick() ">Annuler</button>
+                <button mat-raised-button type="submit " class="btn btn-info pull-right " (click)="modifierRdv(rdv?.id_Rdv,userPost.value)">Modifier</button>
+                <div class="clearfix "></div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="col-md-12 all">
+    <div class="card card-profile">
+        <div class="card-body">
+            <h6 class="card-category text-gray">Ordonnance</h6>
+            <div class="card-info" style="text-align: justify;">
+                <ul>
+
+                </ul>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nom du medicament </th>
+                            <th>Medicament Type</th>
+                            <th>Instructions</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let x of Ordonnance?.medicamentList">
+                            <td>{{ x.id }}</td>
+                            <td>{{ x.nom }}</td>
+                            <td>{{ x.medicamentType }}</td>
+                            <td>{{ x.instructions }}</td>
+                           
+                            <td><button mat-raised-button (click)="modifierMedicament(x.id)" class="btn bg-light text-dark border border-dark btn-round pull-left " ><i class="material-icons">edit</i></button> 
+                                <button mat-raised-button (click)="deleteMedicament(x.id,Ordonnance.id_Ordonnance)" class="btn bg-light text-dark border border-danger btn-round pull-left " ><i class="material-icons">delete</i></button>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button mat-raised-button  style="margin-right: 10px;"  (click)="generatePDF()" class="btn btn-info btn-round pull-left " >Génerer une ordonnance  &nbsp;<i class="material-icons">local_printshop</i></button>
+            <button mat-raised-button  style="margin-right: 10px;" (click)="insertMed(Ordonnance.id_Ordonnance)" class="btn btn-success btn-round pull-left " >Ajout médicament</button>
+            <button mat-raised-button  class="btn btn-danger btn-round pull-left" (click)="onNoClick()">Fermer</button>
+
+        </div>
+    </div>
+</div>

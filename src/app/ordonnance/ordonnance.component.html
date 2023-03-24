@@ -1,0 +1,39 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header card-header-info">
+            <h4 class="card-title">Ajouter Médicament</h4>
+        </div>
+        <div class="card-body">
+            <form #userPost="ngForm" role="form">
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Nom de Medicament" id="nom" name="nom" value={{ordonnance?.nom}} ngModel type="text" required/>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Medicament type" type="text" id="medicamentType" name="medicamentType" value={{ordonnance?.medicamentType}} ngModel required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="instructions" type="text" id="instructions" name="instructions" value={{ordonnance?.instructions}} ngModel required>
+                        </mat-form-field>
+                    </div>
+                    <!--Role + Spécialité -->
+
+                </div>
+                <br> <br>
+                <button mat-raised-button class="btn btn-danger pull-right " (click)="onNoClick() ">Annuler</button>
+
+                <button mat-raised-button type="submit " class="btn btn-success pull-left " (click)="insertMedicament(userPost.value)">Ajouter &nbsp;<i class="material-icons">list_alt</i></button>
+
+
+                <div class="clearfix "></div>
+            </form>
+        </div>
+    </div>
+</div>

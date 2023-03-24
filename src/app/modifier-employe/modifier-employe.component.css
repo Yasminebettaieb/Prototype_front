@@ -1,0 +1,9 @@
+.all {
+    margin: auto;
+}
+
+.title-info {
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: underline;
+}

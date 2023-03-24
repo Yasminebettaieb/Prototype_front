@@ -1,0 +1,56 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header card-header-info">
+            <h4 class="card-title">Ajouter employé</h4>
+            <p class="card-category">Complèter le profil</p>
+        </div>
+        <div class="card-body">
+            <form #userPost="ngForm" role="form">
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Nombre d'heures " type="number" id="nombreHeures" name="nombreHeures" required value={{emp?.nombreHeures}} ngModel>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="heures Supplementaire" type="number" id="heureSupplementaire" name="heureSupplementaire" value={{emp?.heureSupplementaire}} ngModel>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="date Debut" type="date" id="dateDebut" name="dateDebut" value={{emp?.dateDebut}} required ngModel>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width">
+                            <input matInput id="dateFin" type="date" name="dateFin" placeholder="date Fin" value={{emp?.dateFin}} required ngModel>
+                        </mat-form-field>
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="heure Debut" type="time" id="HeureDebut" name="HeureDebut" required value={{emp?.HeureDebut}} ngModel>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="heure Fin" type="time" id="HeureFin" required name="HeureFin" value={{emp?.HeureFin}} ngModel>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <br> <br>
+                <button mat-raised-button class="btn btn-danger pull-right " (click)="onNoClick() ">Annler</button>
+                <button mat-raised-button type="submit " class="btn btn-info pull-right " (click)="insertEmp(userPost.value)">Ajouter</button>
+                <div class="clearfix "></div>
+            </form>
+        </div>
+    </div>
+</div>
+
+

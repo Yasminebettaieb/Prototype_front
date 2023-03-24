@@ -1,0 +1,54 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header card-header-info">
+            <h4 class="card-title">Assigner Patient</h4>
+        </div>
+        <div class="card-body">
+            <form #userPost="ngForm" role="form">
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <mat-select placeholder="Patient" id="idpatient" name="idpatient" [(ngModel)]="selectedItem" >
+                                <ng-container *ngFor="let index of listePatient" ngModel>
+                                    <mat-option value="{{index?.id_patient}}">{{index.nom}} -- id : {{index.id_patient}} </mat-option>
+                                </ng-container>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width">
+                            <input matInput  type="date" id="dateEntree" name="dateEntree" value={{bloc?.dateEntree}} ngModel required>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-form-field class="example-full-width">
+                            <input matInput  type="date" id="dateSortie" name="dateSortie" value={{bloc?.dateSortie}} ngModel required>
+                        </mat-form-field>
+                    </div>
+                    <!--Role + Spécialité -->
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <mat-form-field>
+                            <mat-select placeholder="Type bloc" id="type" name="type"  ngModel >
+                                <ng-container *ngFor="let type of types">
+                            <mat-option value="{{type}}"> {{type}}</mat-option>
+                                </ng-container>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <br> <br>
+                <button mat-raised-button class="btn btn-danger pull-right " (click)="onNoClick() ">Annuler</button>
+
+                <button mat-raised-button type="submit " class="btn btn-success pull-left " (click)="Assign(userPost.value)">Ajouter &nbsp;<i class="material-icons">list_alt</i></button>
+
+
+                <div class="clearfix "></div>
+            </form>
+        </div>
+    </div>
+</div>

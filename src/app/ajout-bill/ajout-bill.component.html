@@ -1,0 +1,63 @@
+<div class="col-md-12">
+    <div class="card">
+        <div class="card-header card-header-info">
+            <h4 class="card-title">Ajouter utilisateur</h4>
+            <p class="card-category">Complèter le profil</p>
+        </div>
+        <div class="card-body">
+            <form #userPost="ngForm" role="form">
+            
+           
+              <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <mat-form-field appearance="fill">
+                                <mat-select placeholder="Patient" id="id_patient" name="id_patient" class="mat-select-trigger" ngModel >
+                                    <ng-container *ngFor="let index of listePatient">
+                                        <mat-option value="{{index.id_patient}}">{{index.nom}} {{index.prenom}} /  id =  {{index.id_patient}}</mat-option>
+                                    </ng-container>
+                                </mat-select>
+                            </mat-form-field>
+                          </div>
+                     </div>
+                    <div class="col-md-4">
+                        <mat-form-field class="example-full-width">
+                            <input matInput placeholder="information_facture" type="text" required id="information_facture" name="information_facture" value={{facture?.information_facture}} ngModel>
+                        </mat-form-field>
+                    </div>
+                    <div class="col-md-4">
+                        <mat-form-field>
+                            <mat-select placeholder="type" required id="type" name="type" value={{facture?.type}}  ngModel>
+                                <ng-container *ngFor="let type of types">
+                                    <mat-option value="{{type.id}}">{{type.value}}</mat-option>
+                                </ng-container>
+                            </mat-select>
+                        </mat-form-field>
+                   </div>
+               </div>
+            
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Date " type="date" id="date" name="date" value={{facture?.date}} ngModel required> 
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Prix" type="number" id="cost" name="cost" value="{{facture?.cost}}" ngModel step="0.01" required>
+                </mat-form-field>
+            </div>
+       
+
+            <!--Role + Spécialité -->
+            
+            
+        </div>
+        <br>
+        <button mat-raised-button class="btn btn-danger pull-right " (click)="onNoClick() ">Annuler</button>
+        <button mat-raised-button type="submit " class="btn btn-info pull-right " (click)="insertFacture(userPost.value)">Ajouter</button>
+        <div class="clearfix "></div>
+    </form>
+        </div>
+     </div>
+</div>

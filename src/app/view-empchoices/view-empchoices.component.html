@@ -1,0 +1,74 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-info">
+                        <h4 class="card-title ">Liste des EDT</h4>
+                        <p class="card-category"> </p>
+                    </div>
+                    <div class="card-body">
+                        <div class="sidebar-wrapper" style="display: flex;flex-direction: row;justify-content: space-between;">
+                            <form class="form-inline waves-light" mdbWavesEffect>
+                                <div class="md-form mt-0">
+                                </div>
+                            </form>
+
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table" id="example-table">
+                                <thead class=" text-info" id="table-headline">
+                                    <th>
+                                        ID
+                                    </th>
+
+                                    <th>
+                                        NombreHeures
+                                    </th>
+                                    <th>
+                                        HeureSupplementaire
+                                    </th>
+                                    <th>
+                                        DateDebut
+                                    </th>
+                                    <th>
+                                        DateFin
+                                    </th>
+                                    <th>
+                                        HeureDebut
+                                    </th>
+                                    <th>
+                                        HeureFin
+                                    </th>
+                                    <th>
+                                        Action
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of items " (click)="getEmp($event)">
+                                        <td> {{ item.id}} </td>
+                                        <td style="color: blue;"> {{ item.nombreHeures}} Heures </td>
+                                        <td style="color: orange;"> {{ item.heureSupplementaire}} Heures </td>
+                                        <td> {{ item.dateDebut}} </td>
+                                        <td> {{ item.dateFin}} </td>
+                                        <td> {{ item.heureDebut}} </td>
+                                        <td> {{ item.heureFin}} </td>
+                                        <td>
+                                            <button class="btn btn-info " (click)="addEmp(item.id,description)">Choisir</button>&nbsp;
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+                <button mat-raised-button class="btn btn-warning pull-right " (click)="onNoClick() ">Annler</button>
+                <div class="clearfix "></div>
+
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-info">
+                        <h4 class="card-title">Modifier EDT</h4>
+                        <p class="card-category"></p>
+                    </div>
+                    <div class="card-body">
+                        <form #userPost="ngForm" role="form">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Nombre d'heures " type="number" id="nombreHeures" name="nombreHeures" value={{edt?.nombreHeures}} ngModel>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="heures Supplementaire" type="number" id="heureSupplementaire" name="heureSupplementaire" value={{edt?.heureSupplementaire}} ngModel>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="date Debut" type="date" id="dateDebut" name="dateDebut" value={{edt?.dateDebut}} ngModel>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput id="dateFin" type="date" name="dateFin" placeholder="date Fin" value={{edt?.dateFin}} ngModel>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="heure Debut" type="time" id="HeureDebut" name="HeureDebut" value={{edt?.HeureDebut}} ngModel>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="heure Fin" type="time" id="HeureFin" name="HeureFin" value={{edt?.HeureFin}} ngModel>
+                                    </mat-form-field>
+                                </div>
+
+
+                            </div>
+                            <button mat-raised-button class="btn btn-warning pull-right" (click)="onNoClick()">Fermer</button>
+                            <button mat-raised-button type="submit" class="btn btn-info pull-right" (click)="OnupdateEDT(edt?.id,userPost.value)">Modifier EDT</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

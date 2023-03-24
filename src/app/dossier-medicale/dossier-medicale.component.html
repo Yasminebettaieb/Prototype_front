@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<body>
+
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    </head>
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12" style="background-color: rgba(255, 255, 255, 0.501);   ">
+                       <br>
+                       <p> Veuillez saisir un patient pout chercher son dossier médicale :</p>
+                        <mat-form-field>
+                            <mat-select placeholder="Patient" id="id_patient" name="id_patient"  [(ngModel)]="selectedOption" >
+                                <ng-container *ngFor="let index of listePatient" >
+                                    <mat-option  value="{{index.id_patient}}">id : {{index.id_patient}}  Nom : {{index.nom}}  Prenom : {{index.prenom}}</mat-option>
+                            </ng-container>
+                        </mat-select>
+                       <br> <br>
+                       <br>
+                       <br>
+                        <p style="color: #ff000070;">
+                            * Les informations contenues dans ces documents sont confidentielles, privilégiées et uniquement pour les
+                            informations du destinataire prévu et ne peuvent être utilisées.
+                    </p>
+                    <button mat-raised-button class="btn btn-success "  [routerLink]="['/Dossier',selectedOption]" routerLinkActive="router-link-active" >Chercher</button>
+
+    </mat-form-field>
+                       </div>
+
+                
+            </div>
+        </div>
+    </div>
+
+</body>

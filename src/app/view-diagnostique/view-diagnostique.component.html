@@ -1,0 +1,20 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-info">
+                        <h4 class="card-title">diagnostique</h4>
+                    </div>
+                    <div class="card-body" id="htmlData">
+                        <h5>{{description}}</h5>
+                        <input type="button" value="Download PDF" class="btn btn-success pull-right" (click)="openPDF()">  
+                        <button mat-raised-button class="btn btn-danger pull-right " (click)="onNoClick() ">Fermer</button>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

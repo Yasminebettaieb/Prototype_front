@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<body>
+
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    </head>
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-info">
+                            <h4 class="card-title ">Liste des utilisateurs</h4>
+                            <p class="card-category"> Il existe {{items.length}} utilisateurs</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="sidebar-wrapper" style="display: flex;flex-direction: row;justify-content: space-between;">
+                                <form class="form-inline waves-light" mdbWavesEffect>
+                                    <div class="md-form mt-0">
+                                        <input autocomplete="off" style="border-color: darkblue;" [(ngModel)]="searchText" class="form-control mr-sm-2" name="myValue" type="text" placeholder="Rechercher employé">
+                                    </div>
+                                </form>
+
+                                <button mat-raised-button type="submit" class="btn btn-warning " (click)="ajouterEmploye()"><i class="material-icons">person_add</i>&nbsp;&nbsp;Ajouter Utilisateur</button>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table" id="example-table">
+                                    <thead class=" text-info" id="table-headline">
+                                        <th (click)="sort('id')">
+                                            ID
+                                        </th>
+
+                                        <th (click)="sort('nom')">
+                                            NOM
+                                        </th>
+                                        <th (click)="sort('prenom')">
+                                            PRENOM
+                                        </th>
+                                        <th>
+                                            EMAIL
+                                        </th>
+                                        <th>
+                                            TELEPHONE
+                                        </th>
+                                        <th>
+                                            DATE_NAISSANCE
+                                        </th>
+                                        <th>
+                                            ROLE
+                                        </th>
+                                        <th>
+                                            EMPLOI DU TEMPS
+                                        </th>
+                                        <th>
+                                            Compte
+                                        </th>
+                                        <th>
+                                            Action
+                                        </th>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let item of items | orderBy : orderHeader : isDescOrder| grdFilter: {id: searchText ,nom: searchText, email:searchText}; " (click)="getClient($event)">
+                                            <td> {{ item.id}} </td>
+                                            <td> {{ item.nom}} </td>
+                                            <td> {{ item.prenom}} </td>
+                                            <td> {{ item.email}} </td>
+                                            <td> {{ item.phoneNumber}} </td>
+                                            <td> {{ item.dateNaissance}} </td>
+                                            <td *ngIf="item.role == 'ROLE_ADMINISTRATEUR'">ADMINISTRATEUR</td>
+                                            <td *ngIf="item.role == 'ROLE_CHEF_SERVICE'">CHEF_SERVICE</td>
+                                            <td *ngIf="item.role == 'ROLE_MEDECIN'">MEDECIN</td>
+                                            <td *ngIf="item.role == 'ROLE_RECEPTIONISTE'">RECEPTIONISTE</td>
+                                            <td *ngIf="item.role == 'ROLE_TECHNICIAN'">RADIOLOGUE</td>
+                                            <td *ngIf="item.idEmploi!=0" style="text-align:center">
+                                                <button mat-stroked-button class="btn btn-info" (click)="test(item.idEmploi)"> <i class="material-icons">visibility</i>&nbsp;Voir</button>
+                                            </td>
+                                            <td *ngIf="item.idEmploi==0" style="text-align:center">
+                                                <button mat-stroked-button class="btn btn-warning" (click)="viewEmp(item.id)"> <i class="material-icons">add</i>&nbsp;Ajouter</button>
+                                            </td>
+                                            <td *ngIf="item.etatCompte == true"><span style="color:rgb(123, 222, 123);"><i class="material-icons">done_outline</i>&nbsp; Activé</span></td>
+                                            <td *ngIf="item.etatCompte== false"><i class="material-icons">clear</i>&nbsp; Désactivé</td>
+                                            <td>
+                                                <button mat-mini-fab type="submit" style="width :1m;" class="btn btn-warning " (click)="modifierEmploye(item?.id)" style="width : 1m; "><i class="material-icons">edit</i></button>&nbsp;
+                                                <button mat-mini-fab type="submit" class="btn btn-info " style="width : 1m; "><i class="material-icons" (click)="viewEmploye(item)">visibility</i></button>&nbsp;
+                                                <button mat-mini-fab type="submit" class="btn btn-danger " style="width : 1m; " (click)="deleteCategories(item?.id)"><i class="material-icons">delete</i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

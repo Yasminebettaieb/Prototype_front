@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<body>
+
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    </head>
+    <style>
+        .mat-form-field {
+  width: 100%;
+}
+.mat-select-trigger {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  border-radius: 10px;
+  border: none;
+  background-color: #F3F3F3;
+  padding: 5px 12px;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-infix {
+  padding: 5px 12px;
+}
+
+    </style>
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header bg-dark">
+          <h4 class="card-title " style="color: white;">Patient Bills</h4>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+                <mat-form-field appearance="fill">
+                                <mat-label>Patient ID or name</mat-label>
+                                <mat-select [(ngModel)]="id_patient" (ngModelChange)="fetchBills()" class="mat-select-trigger">
+                                  <mat-option *ngFor="let patient of listePatient" [value]="patient.id_patient">
+                                    {{ patient.nom }} {{patient.prenom}} -- id: {{ patient.id_patient }}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+              </div>
+              
+              <div class="row">
+                <div class="col">
+                  <button mat-raised-button color="primary" (click)="addBill()">Add Bill</button>
+                </div>
+              </div>
+              
+              <div class="row mt-3">
+                <div class="col">
+                  <table class="table table-bordered table-hover">
+                    <thead>
+                      <tr>
+                          <th>ID Facture</th>
+                          <th>ID Patient</th>
+
+                              <th>Information</th>
+                              <th>Type</th>
+                              <th>Prix </th>
+                              <th>Date</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let bill of bills">
+                        <td>{{ bill.id_facture }}</td>
+                        <td>{{ bill.id_patient }}</td>
+
+                              <td>{{ bill.information_facture }}</td>
+                              <td>{{ bill.type }}</td>
+                              <td>{{ bill.cost }} DT</td>
+                              <td>{{ bill.date }}</td>
+                        <td>
+                          <button mat-raised-button color="warn" (click)="deleteBill(bill.id_facture)">Delete</button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              
+        </div>
+        <div class="card-footer">
+          <div class="stats">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+        </div>
+    </div>
+
+</body>

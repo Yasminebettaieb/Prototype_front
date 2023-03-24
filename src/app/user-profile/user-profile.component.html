@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<body>
+
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    </head>
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-info">
+                            <h4 class="card-title ">Liste des EDT</h4>
+                            <p class="card-category"> </p>
+                        </div>
+                        <div class="card-body">
+                            <div class="sidebar-wrapper" style="display: flex;flex-direction: row;justify-content: space-between;">
+                                <form class="form-inline waves-light" mdbWavesEffect>
+                                    <div class="md-form mt-0">
+                                        <input autocomplete="off" style="border-color: darkblue;" [(ngModel)]="searchText" class="form-control mr-sm-2" name="myValue" type="text" placeholder="Rechercher EDT">
+                                    </div>
+                                </form>
+
+                                <button mat-raised-button type="submit" class="btn btn-warning " (click)="ajouterEmp()"><i class="material-icons">alarm_add</i>&nbsp;&nbsp;Ajouter EDT</button>
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table" id="example-table">
+                                    <thead class=" text-info" id="table-headline">
+                                        <th>
+                                            ID
+                                        </th>
+
+                                        <th>
+                                          NombreHeures
+                                        </th>
+                                        <th>
+                                          HeureSupplementaire
+                                        </th>
+                                        <th>
+                                         DateDebut
+                                        </th>
+                                        <th>
+                                          DateFin
+                                        </th>
+                                        <th>
+                                          HeureDebut
+                                        </th>
+                                        <th>
+                                          HeureFin
+                                        </th>
+                                        <th>
+                                            Action
+                                        </th>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let item of items | grdFilter:{id: searchText ,heureDebut: searchText, heureFin:searchText ,heureSupplementaire : searchText}; " (click)="getEmp($event)">
+                                            <td> {{ item.id}} </td>
+                                            <td style="color: blue;"> {{ item.nombreHeures}}  Heures </td>
+                                            <td style="color: orange;"> {{ item.heureSupplementaire}}  Heures </td>
+                                            <td> {{ item.dateDebut}} </td>
+                                            <td> {{ item.dateFin}} </td>
+                                            <td> {{ item.heureDebut}} </td>
+                                            <td> {{ item.heureFin}} </td>
+                                            <td>
+                                                <button mat-mini-fab type="submit" class="btn btn-warning " (click)="modifierEDT(item?.id)" style="width : 1m; "><i class="material-icons">edit</i></button>&nbsp;
+                                                <button mat-mini-fab type="submit" class="btn btn-danger " style="width : 1m; " (click)="deleteEmp(item?.id)"><i class="material-icons">delete</i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>

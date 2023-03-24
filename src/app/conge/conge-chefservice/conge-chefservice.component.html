@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<body>
+
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    </head>
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-info">
+                            <h4 class="card-title ">Liste des demandes de congé</h4>
+                            <p class="card-category"> Il existe {{conge.length}} demandes</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="sidebar-wrapper" style="display: flex;flex-direction: row;justify-content: space-between;">
+                                <form class="form-inline waves-light" mdbWavesEffect>
+                                    <div class="md-form mt-0">
+                                        <input autocomplete="off"  [(ngModel)]="searchText"  style="border-color: darkblue;" class="form-control mr-sm-2" name="myValue" type="text" placeholder="Rechercher congé">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table" id="example-table">
+                                    <thead class=" text-info" id="table-headline">
+                                        <th>
+                                            ID
+                                        </th>
+                                        <th>
+                                            ID_employé
+                                        </th>
+                                        <th>
+                                            Nom_employé
+                                        </th>
+                                        <th>
+                                            Prénom_employé
+                                        </th>
+                                        <th>
+                                            Date_debut
+                                        </th>
+                                        <th>
+                                            Date_fin
+                                        </th>
+                                        <th>
+                                            Type_conge
+                                        </th>
+                                        <th>
+                                            Raison
+                                        </th>
+                                        <th>
+                                            Confirmation_Admin
+                                        </th>
+                                        <th>
+                                            Décision
+                                        </th>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let oneconge of conge  | cheffFilter: {id: searchText }">
+                                            <td> {{oneconge.id}} </td>
+                                            <td> {{oneconge.usersDto.id}} </td>
+                                            <td> {{oneconge.usersDto.nom}} </td>
+                                            <td> {{oneconge.usersDto.prenom}}</td>
+                                            <td> {{oneconge.dateDebut}} </td>
+                                            <td> {{oneconge.dateFin}} </td>
+                                            <td> {{oneconge.typeConge}}</td>
+                                            <td> {{oneconge.raison}}</td>
+                                            <td *ngIf="oneconge.confirmationRh == null">
+                                                En cours ..
+                                            </td>
+                                            <td *ngIf="oneconge.confirmationRh == true">
+                                                <i class="material-icons">done_outline</i>
+                                            </td>
+                                            <td *ngIf="oneconge.confirmationRh == false">
+                                                <i class="material-icons">clear</i>
+                                            </td>
+                                            <td *ngIf="oneconge.confirmationChefService == null">
+                                                <button mat-mini-fab type="submit" class="btn btn-info " style="width : 1m; "><i class="material-icons"(click)="AccepterConge(oneconge?.id)">done_outline</i></button>&nbsp;
+                                                <button mat-mini-fab type="submit" class="btn btn-danger " style="width : 1m; "><i class="material-icons"(click)="RefuserConge(oneconge?.id)">clear</i></button>&nbsp;
+                                            </td>
+                                            <td *ngIf="oneconge.confirmationChefService == true">
+                                                Accepté &nbsp;<i class="material-icons">done_outline</i>
+                                            </td>
+                                            <td *ngIf="oneconge.confirmationChefService == false">
+                                                Réfussé &nbsp;<i class="material-icons">clear</i>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>

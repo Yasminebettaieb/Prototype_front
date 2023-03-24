@@ -1,0 +1,40 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-info">
+                        <h4 class="card-title">Modifier Medicament n° : {{id}} </h4>
+                    </div>
+
+                    <div class="card-body">
+                        <form #userPost="ngForm" role="form">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Nom medicament" type="text" id="nom" name="nom" value={{medicament?.nom}} ngModel>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Type Medicament" type="text" id="medicamentType" name="medicamentType" value={{medicament?.medicamentType}} ngModel>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput id="instructions" name="instructions" placeholder="instructions'" value={{medicament?.instructions}} ngModel>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                           
+                            <button mat-raised-button class="btn btn-danger pull-right " (click)="onNoClick() ">Annler</button>
+                            <button mat-raised-button class="btn btn-info pull-right" (click)="Onupdate(medicament?.id,userPost.value)">Modifier Medicament</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

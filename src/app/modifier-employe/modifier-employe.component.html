@@ -1,0 +1,34 @@
+<head>
+    <base href='/'>
+    <meta charset="utf-8" />
+</head>
+<div class="col-md-12 all">
+    <div class="card card-profile">
+        <div class="card-avatar">
+            <a href="javascript:void(0)">
+                <img class="img" src="/../../assets/employe.png" />
+            </a>
+        </div>
+        <div class="card-body">
+            <h6 class="card-category text-gray">{{description.role }}</h6>
+            <h4 class="card-title">{{description.nom }} {{description.prenom }}</h4>
+            <div class="card-info" style="text-align: justify;">
+                <ul>
+                    <li><span class="title-info">Id de l'employé :</span>&nbsp;&nbsp;&nbsp;{{description.id}}</li>
+                    <li><span class="title-info">Nom et Prénom :</span>&nbsp;&nbsp;&nbsp;{{description.nom}} {{description.prenom}}</li>
+                    <li><span class="title-info">CIN :</span>&nbsp;&nbsp;&nbsp;{{description.cin}}</li>
+                    <li><span class="title-info">Email :</span>&nbsp;&nbsp;&nbsp;{{description.email}}</li>
+                    <li><span class="title-info">Numéro de téléphone :</span>&nbsp;&nbsp;&nbsp;{{description.phoneNumber}}</li>
+                    <li><span class="title-info">Date de Naissance :</span>&nbsp;&nbsp;&nbsp;{{description.dateNaissance}}</li>
+                    <li><span class="title-info">Date d'emploi :</span>&nbsp;&nbsp;&nbsp;{{description.dateNaissance}}</li>
+                    <li><span class="title-info">Adresse :</span>&nbsp;&nbsp;&nbsp;{{description.adresse}}</li>
+                    <li><span class="title-info">Sexe :</span>&nbsp;&nbsp;&nbsp;{{description.gender}}</li>
+                    <li><span class="title-info">Matricule :</span>&nbsp;&nbsp;&nbsp;{{description.matricule}}</li>
+                    <li><span class="title-info">Role :</span>&nbsp;&nbsp;&nbsp;{{description.role}}</li>
+                    <li *ngIf="description.role === 'ROLE_MEDECIN'"><span class="title-info">Spécialité :</span>&nbsp;&nbsp;&nbsp;{{description.sp}}</li>
+                </ul>
+            </div>
+            <button mat-raised-button type="submit" class="btn btn-warning btn-round" (click)="onNoClick()">Fermer</button>
+        </div>
+    </div>
+</div>

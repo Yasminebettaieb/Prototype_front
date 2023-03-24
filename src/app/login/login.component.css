@@ -1,0 +1,67 @@
+label {
+    display: block;
+}
+
+.card-container.card {
+    max-width: 400px !important;
+    padding: 40px 40px;
+}
+
+.container-fluid {
+    min-height: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+h4 {
+    text-align: center;
+    font-weight: bold;
+    color: rgb(2, 85, 124);
+}
+
+.card {
+    background-color: #f7f7f7;
+    padding: 20px 25px 30px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.profile-img-card {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.container-all {
+    background-image: url("../../assets/img/backgroundcolor.png")!important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh!important;
+}
+
+.input-icons i {
+    position: absolute;
+}
+
+.input-icons {
+    width: 100%;
+}
+
+.icon {
+    padding: 1px;
+    min-width: 40px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}

@@ -1,0 +1,151 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-4 col-md-8 col-sm-8">
+                <div class="card card-stats">
+                    <div class="card-header card-header-warning card-header-icon">
+                        <div class="card-icon">
+                            <i class="fa fa-users"></i>
+                        </div>
+                        <p class="card-category">Gestion</p>
+                        <h3 class="card-title">Employés </h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-8 col-sm-8">
+                <div class="card card-stats">
+                    <div class="card-header card-header-success card-header-icon">
+                        <div class="card-icon">
+                            <i class="fa fa-bed "></i>
+                        </div>
+                        <p class="card-category">Gestion</p>
+                        <h3 class="card-title">Patients</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-8 col-sm-8">
+                <div class="card card-stats">
+                    <div class="card-header card-header-danger card-header-icon">
+                        <div class="card-icon">
+                            <i class="fa fa-hospital-o  "></i>
+                        </div>
+                        <p class="card-category">Gestion</p>
+                        <h3 class="card-title">Blocs</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                        </div>
+                    </div>
+                </div>
+            </div>
+ 
+        </div>
+       
+                <div class="row">
+                  <div class="col-md-2">
+                    <div class="card card-chart">
+                      <div class="card-header card-header-success">
+                        <h4 class="card-title">Patient Registrations</h4>
+                        <p class="card-category">New Patients Today</p>
+                      </div>
+                      <div class="card-body">
+                        <div class="ct-chart" id="dailyPatientRegistrations"></div>
+                        <div *ngFor="let patient of data">
+                          <div class="patient-info">
+                            <div class="patient-details">
+                              <img style="width: 50px;" src="./../../assets/1430453.png" alt="Patient Image">
+                              <h5>{{ patient.nom }} {{ patient.prenom }}</h5>
+                              <p>ID: {{ patient.cin }}</p>
+                              <hr>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-footer">
+                        <div class="stats">
+                          <i class="material-icons">access_time</i> Updated 5 minutes ago
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  
+                  
+                    
+                  <div class="col-md-6">
+                    <div class="card card-chart">
+                      <div class="card-header card-header-info">
+                        <h4 class="card-title">Liste des demandes de congé</h4>
+                      </div>
+                      <div class="card-body">
+                        <div class="table-responsive">
+                          <table class="table" id="example-table">
+                            <thead class="text-info" id="table-headline">
+                              <th>Nom</th>
+                              <th>Prénom</th>
+                              <th>Debut</th>
+                              <th>Fin</th>
+                              <th>Type</th>
+                              <th>Raison</th>
+                     
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let oneconge of conge">
+                                <td>{{oneconge.usersDto.nom}}</td>
+                                <td>{{oneconge.usersDto.prenom}}</td>
+                                <td>{{oneconge.dateDebut}}</td>
+                                <td>{{oneconge.dateFin}}</td>
+                                <td>{{oneconge.typeConge}}</td>
+                                <td>{{oneconge.raison}}</td>
+                               
+                                
+                              </tr>
+                            </tbody>
+                          </table>
+                          <button   [routerLink]="['/congeAdmin']" class="btn bg-success text-light border border-dark btn-round pull-left " >Voir tout</button>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                
+                      
+                  
+                      <div class="col-md-4">
+                        <div class="card card-chart">
+                          <div class="card-header card-header-success">
+                            <h4  class="card-title">Site Uptime</h4>
+                            <p class="card-category">Current Time and Uptime</p>
+                          </div>
+                          <div class="card-body">
+                            <div  class="d-flex justify-content-between">
+                              <div>
+                                <h5 class="card-subtitle mb-2 text-muted"> <b>Current Time: </b></h5>
+                                <p style="text-align: center;"> <b>  {{ currentTime }} </b></p>
+                              </div>
+                              <div>
+                                <h5 class="card-subtitle mb-2 text-muted">timeSinceOpened</h5>
+                                <div   class="clock"> <b>{{ timeSinceOpened | date: 'HH:mm:ss' }}  </b> </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="card-footer">
+                            <div class="stats">
+                              <i class="material-icons">access_time</i> Last updated : 8 minutes ago 
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                </div>
+</div> 
+</div>

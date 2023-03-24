@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<body>
+
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    </head>
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-info">
+                            <h4 class="card-title ">Emploi du Temps <i class="material-icons">visibility</i></h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="sidebar-wrapper" style="display: flex;flex-direction: row;justify-content: space-between;">
+
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table" id="example-table">
+                                    <thead class=" text-info" id="table-headline">
+                                        <th>
+                                            ID
+                                        </th>
+
+                                        <th>
+                                            NombreHeures
+                                        </th>
+                                        <th>
+                                            HeureSupplementaire
+                                        </th>
+                                        <th>
+                                            DateDebut
+                                        </th>
+                                        <th>
+                                            DateFin
+                                        </th>
+                                        <th>
+                                            HeureDebut
+                                        </th>
+                                        <th>
+                                            HeureFin
+                                        </th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td> {{ edts.id}} </td>
+                                            <td style="color: #468f7b; font-weight: bold;"> {{ edts.nombreHeures}} Heures </td>
+                                            <td style="color: orange; font-weight: bold;"> {{ edts.heureSupplementaire}} Heures </td>
+                                            <td style="font-weight :bold"> {{ edts.dateDebut}} </td>
+                                            <td style="font-weight :bold"> {{ edts.dateFin}} </td>
+                                            <td style="font-weight :bold"> {{ edts.heureDebut}} </td>
+                                            <td style="font-weight :bold"> {{ edts.heureFin}} </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
