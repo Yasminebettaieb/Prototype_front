@@ -30,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       security-events: write
-      content: read
+      contents: read
 
     steps:
       - name: Checkout repository
